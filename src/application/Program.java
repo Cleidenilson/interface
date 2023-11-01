@@ -19,16 +19,17 @@ public class Program {
 
 		System.out.println("Informe os dados do contrato:");
 		System.out.println("Contrato:");
-		Integer number = sc.nextInt();
+		int number = sc.nextInt();
 		System.out.println("Data (dd/MM/yyyy)");
 		sc.nextLine();
 		LocalDate date = LocalDate.parse(sc.nextLine(), fmt);
 		System.out.println("Valor do Contrato:");
-		Double totalValue = sc.nextDouble();
+		double totalValue = sc.nextDouble();
 		sc.nextLine();
 		System.out.println("Entre com o número de parcelas:");
 		Integer numberQuota = sc.nextInt();
-
+		
+		numberQuota.equals(number);
 		Contract obj = new Contract(number, date, totalValue);
 		ContractService cs = new ContractService(new PaypalService());
 		cs.processContract(obj, numberQuota);
@@ -39,6 +40,7 @@ public class Program {
 
 		}
 
+		sc.close();
 	}
 
 }
